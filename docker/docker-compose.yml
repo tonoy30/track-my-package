@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  rabbitmq:
+    container_name: rmq_package
+    image: rabbitmq:3-management
+    restart: unless-stopped
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    volumes:
+      - rabbitvol:/var/lib/rabbitmq
+    ports:
+      - 5672:5672
+      - 5673:5673
+      - 15672:15672
+      - 15674:15674
+      - 15671:15671
+    networks:
+      - package
+networks:
+  package:
+    driver: bridge
+volumes:
+  rabbitvol:
+    driver: local
