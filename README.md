@@ -5,3 +5,4 @@
 ### For running this:
 1. `docker compose -f app/docker/docker-compose.yml up -d --build`
 2. `make`
+3. `make seed`
